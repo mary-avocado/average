@@ -10,18 +10,18 @@ main =
     getTemperatures дни >>=
     \ts -> 
       putStrLn "Средняя температура" >>
-      putStrLn (show (avg ts)) >>
+      putStrLn (show (avg ts) ++"°C") >>
       putStrLn "Максимальная температура" >>
-      putStrLn (show (maximum ts)) >>
+      putStrLn (show (maximum ts) ++ "°C")  >>
       putStrLn "Минимальная температура" >>
-      putStrLn (show (minimum ts))
+      putStrLn (show (minimum ts) ++ "°C")
  
 getTemperatures :: Integer -> IO [Centi]
 getTemperatures =
  \days -> 
    if days == 0
    then return []
-   else  putStrLn "Какая температура (Цельсия)" >>
+   else  putStrLn "Какая температура °C" >>
    (readLn :: IO Centi) >>=
      \t ->
      getTemperatures (days - 1) >>=
