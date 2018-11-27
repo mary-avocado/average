@@ -10,7 +10,11 @@ main =
     getTemperatures дни >>=
     \ts -> 
       putStrLn "Средняя температура" >>
-      putStrLn (show (avg ts))
+      putStrLn (show (avg ts)) >>
+      putStrLn "Максимальная температура" >>
+      putStrLn (show (maximum ts)) >>
+      putStrLn "Минимальная температура" >>
+      putStrLn (show (minimum ts))
  
 getTemperatures :: Integer -> IO [Centi]
 getTemperatures =
@@ -26,3 +30,5 @@ getTemperatures =
 
 avg :: [Centi] -> Centi
 avg = \xs -> sum xs / fromIntegral (length xs) 
+
+
